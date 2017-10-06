@@ -6,50 +6,19 @@ import (
 	"github.com/gogame/gogame"
 )
 
-type mygame struct {
-	val int
-}
-
-func (g *mygame) Start() {
-	fmt.Println("started mg")
-}
-
-func (g *mygame) Update() {
-	fmt.Println("updated mg")
-}
-
-func (g *mygame) FixedUpdate() {
-	fmt.Println("fixed updated")
-}
-
 func Start() {
-	fmt.Println("started free")
+	fmt.Printf("started free \n")
 }
 
 func Update() {
-	fmt.Println("updated free")
+	fmt.Printf("updated free \n")
 }
 
-/*
-func Update() {
-	fmt.Println("updated")
+func main() {
+	gogame.Run(Start, Update)
 }
-*/
+
 //https://github.com/oskca/gopherjs-canvas
 //import "github.com/veandco/go-sdl2/sdl"
 //todo allow passing argument and returning value
 //argc int, argv []string
-func main() {
-	//start from here for adapter
-	/*g := new(mygame)
-	(*mygame).Update(g)*/
-
-	//to add adapter to allow simple function without struct
-	//gogame.Run(new(mygame))
-	g := &gogame.Game{Update: &mygame{val: 1}}
-	g.Run()
-	//gogame.Run(&mygame{val: 1})
-	//gogame.Run(Start, Update)
-	//fmt.Println("------------------")
-	//gogame.Run(&mygame{val: 1})
-}
